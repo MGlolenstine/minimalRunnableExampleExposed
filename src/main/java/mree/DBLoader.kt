@@ -42,12 +42,14 @@ class DBLoader(createMissing: Boolean) {
     fun fillDb() {
         val fillingDb = measureTimeMillis {
             transaction {
-                RandomText.insert {
-                    it[text] = generateRandomString()
+                for(i in 0 until 50) {
+                    RandomText.insert {
+                        it[text] = generateRandomString()
+                    }
                 }
             }
         }
-        println("Filling database with a random 15 long string took $fillingDb ms")
+        println("Filling database with 50 random 15 long strings took $fillingDb ms")
         println("There's ${count()} text lines in the database!")
     }
 

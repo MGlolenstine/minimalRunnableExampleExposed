@@ -17,7 +17,7 @@ class DBLoaderKotliQuery {
 
     private fun connectToDb() {
         val create = measureTimeMillis {
-            sess = sessionOf("jdbc:h2:~/testdb3;DB_CLOSE_DELAY=-1", "root", "")
+            sess = sessionOf("jdbc:h2:~/testdb2;DB_CLOSE_DELAY=-1", "root", "")
             sess.execute(queryOf("CREATE TABLE IF NOT EXISTS RandomText(ID INT PRIMARY KEY auto_increment, text VARCHAR(15));"))
         }
         println("h2 database creation #3 took $create ms")
